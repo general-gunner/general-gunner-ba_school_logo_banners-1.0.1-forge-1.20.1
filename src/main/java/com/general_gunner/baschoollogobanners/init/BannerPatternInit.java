@@ -1,12 +1,8 @@
-package net.general_gunner.baschoollogobanners.init;
+package com.general_gunner.baschoollogobanners.init;
 
-import net.general_gunner.baschoollogobanners.BASchoolLogoBannersMod;
-import net.general_gunner.baschoollogobanners.Constants;
-import net.minecraft.core.registries.BuiltInRegistries;
+import com.general_gunner.baschoollogobanners.Constants;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.entity.BannerPattern;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 

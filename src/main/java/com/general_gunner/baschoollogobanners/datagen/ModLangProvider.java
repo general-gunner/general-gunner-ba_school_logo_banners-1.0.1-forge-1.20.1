@@ -1,8 +1,8 @@
-package net.general_gunner.baschoollogobanners.datagen;
+package com.general_gunner.baschoollogobanners.datagen;
 
 import com.google.common.collect.ImmutableMap;
-import net.general_gunner.baschoollogobanners.Constants;
-import net.general_gunner.baschoollogobanners.init.BannerPatternInit;
+import com.general_gunner.baschoollogobanners.Constants;
+import com.general_gunner.baschoollogobanners.init.BannerPatternInit;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.DyeColor;
@@ -16,8 +16,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-
-import static net.minecraft.world.level.block.entity.BlockEntity.addEntityType;
 
 public class ModLangProvider extends LanguageProvider {
     protected static final Map<String, String> REPLACE_LIST = ImmutableMap.of(

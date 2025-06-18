@@ -1,4 +1,4 @@
-package net.general_gunner.baschoollogobanners;
+package com.general_gunner.baschoollogobanners;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

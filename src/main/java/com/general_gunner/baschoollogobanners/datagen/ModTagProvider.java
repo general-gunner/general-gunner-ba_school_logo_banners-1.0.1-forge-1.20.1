@@ -1,25 +1,15 @@
-package net.general_gunner.baschoollogobanners.datagen;
+package com.general_gunner.baschoollogobanners.datagen;
 
-import net.general_gunner.baschoollogobanners.BASchoolLogoBannersMod;
-import net.general_gunner.baschoollogobanners.Constants;
-import net.general_gunner.baschoollogobanners.init.BannerPatternInit;
+import com.general_gunner.baschoollogobanners.Constants;
+import com.general_gunner.baschoollogobanners.init.BannerPatternInit;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BannerPatternTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.Registry;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.BannerPatternTagsProvider;
-import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.BannerPatternTags;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Supplier;
 
 public class ModTagProvider {
 
