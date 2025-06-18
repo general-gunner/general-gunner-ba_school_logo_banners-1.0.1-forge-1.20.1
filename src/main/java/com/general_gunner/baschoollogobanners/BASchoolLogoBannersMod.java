@@ -21,6 +21,7 @@ import net.minecraftforge.registries.DeferredRegister;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BASchoolLogoBannersMod
 {
+    //test
 /*
     // Define mod id in a common place for everything to reference
     public static final String MOD_ID = Constants.MOD_ID;
