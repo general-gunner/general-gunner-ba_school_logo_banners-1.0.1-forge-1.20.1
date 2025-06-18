@@ -1,11 +1,17 @@
 package net.general_gunner.baschoollogobanners;
 
 import com.mojang.logging.LogUtils;
+import net.general_gunner.baschoollogobanners.datagen.ModLangProvider;
+import net.general_gunner.baschoollogobanners.datagen.ModTagProvider;
+import net.general_gunner.baschoollogobanners.init.BannerPatternInit;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.world.level.block.entity.BannerPattern;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -20,11 +26,11 @@ import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(BASchoolLogoBannersMod.MOD_ID)
+@Mod(Constants.MOD_ID)
 public class BASchoolLogoBannersMod
 {
     // Define mod id in a common place for everything to reference
-    public static final String MOD_ID = "ba_school_logo_banners";
+    public static final String MOD_ID = Constants.MOD_ID;
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
@@ -32,7 +38,8 @@ public class BASchoolLogoBannersMod
     public BASchoolLogoBannersMod(FMLJavaModLoadingContext context)
     {
         IEventBus modEventBus = context.getModEventBus();
-
+        //BannerPatternInit.loadClass();
+        BannerPatternInit.BANNER_PATTERNS.register(context.getModEventBus());
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -41,6 +48,14 @@ public class BASchoolLogoBannersMod
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
+    }
+    @SubscribeEvent
+    public static void onGatherData(GatherDataEvent event) {
+        DataGenerator generator = event.getGenerator();
+        ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
+        boolean includeServer = event.includeServer();
+        generator.addProvider(event.includeClient(), new ModLangProvider(generator.getPackOutput()));
+        generator.addProvider(includeServer, new ModTagProvider.BannerPatterns(generator.getPackOutput(),event.getLookupProvider(), existingFileHelper));
     }
 
 
@@ -62,7 +77,7 @@ public class BASchoolLogoBannersMod
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @Mod.EventBusSubscriber(modid = Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {
         @SubscribeEvent
