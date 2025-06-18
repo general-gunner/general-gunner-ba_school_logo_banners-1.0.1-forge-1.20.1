@@ -1,6 +1,7 @@
 package net.general_gunner.baschoollogobanners.init;
 
 import net.general_gunner.baschoollogobanners.BASchoolLogoBannersMod;
+import net.general_gunner.baschoollogobanners.Constants;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -10,7 +11,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 
 public class BannerPatternInit {
-    public static final DeferredRegister<BannerPattern> BANNER_PATTERNS = DeferredRegister.create(Registries.BANNER_PATTERN, BASchoolLogoBannersMod.MOD_ID);
+    public static final DeferredRegister<BannerPattern> BANNER_PATTERNS = DeferredRegister.create(Registries.BANNER_PATTERN, Constants.MOD_ID);
 
     public static final RegistryObject<BannerPattern> PATTERN_ABYDOS = registerBannerPattern("pattern_abydos");
     public static final RegistryObject<BannerPattern> PATTERN_ARIUS = registerBannerPattern("pattern_arius");
